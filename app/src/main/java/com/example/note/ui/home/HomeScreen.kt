@@ -42,6 +42,7 @@ import androidx.compose.material.icons.outlined.AccountCircle
 import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.Menu
 import androidx.compose.material.icons.rounded.MoreVert
+import androidx.compose.material.icons.rounded.Person
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -57,9 +58,11 @@ import androidx.ui.tooling.preview.Preview
 import com.example.note.R
 import com.example.note.model.Project
 import com.example.note.model.TaskState
+
 import com.example.note.ui.components.DragIndicator
 import com.example.note.ui.components.HorizontalDivider
 import com.example.note.ui.components.ToDometerTitle
+import com.example.note.ui.theme.AppThemeState
 import com.example.note.ui.theme.MaterialColors
 import com.example.note.ui.theme.ToDometerTheme
 import com.example.note.ui.utils.ProgressUtil
@@ -69,6 +72,7 @@ import java.util.Locale
 @Composable
 @OptIn(ExperimentalMaterialApi::class)
 fun HomeScreen(
+
     mainViewModel: MainViewModel,
     addTask: () -> Unit,
     addProject: () -> Unit,
@@ -206,20 +210,26 @@ fun ToDometerTopBar() {
 
 @Composable
 fun SheetContainer(projectList: List<Project>, addProject: () -> Unit) {
-    Column(modifier = Modifier.preferredHeight(480.dp)) {
+    Column(modifier = Modifier.preferredHeight(560.dp)) {
         DragIndicator()
         Row(
             verticalAlignment = Alignment.CenterVertically,
-            modifier = Modifier.height(56.dp).padding(start = 16.dp, end = 16.dp)
+            modifier = Modifier.height(100.dp).padding(start = 16.dp, end = 16.dp)
         ) {
             Text(
                 text = stringResource(id = R.string.projects).toUpperCase(Locale.ROOT),
                 style = typography.overline
             )
             Spacer(modifier = Modifier.weight(1f))
+
+
             TextButton(onClick = addProject) {
                 Icon(asset = Icons.Rounded.Add)
                 Text(text = stringResource(id = R.string.add_project))
+            }
+            TextButton(onClick = addProject) {
+                Icon(asset = Icons.Rounded.Person)
+                Text(text = stringResource(id = R.string.profile))
             }
         }
         HorizontalDivider()

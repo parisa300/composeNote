@@ -38,6 +38,9 @@ private val LightColorPalette = lightColors(
 @Composable
 val Colors.outline: Color
     get() = if (isLight) outlineLight else outlineDark
+enum class ColorPallet {
+    PURPLE, GREEN, ORANGE, BLUE
+}
 
 @Composable
 val MaterialColors: Colors

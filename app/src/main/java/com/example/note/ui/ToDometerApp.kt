@@ -3,6 +3,8 @@
 package com.example.note.ui
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
@@ -17,15 +19,18 @@ import com.example.note.ui.Destinations.Home
 import com.example.note.ui.Destinations.TaskDetail
 import com.example.note.ui.Destinations.TaskDetailArgs.TaskId
 import com.example.note.ui.addproject.AddProjectScreen
+import com.example.note.ui.addproject.profile.ProfileScreen
 import com.example.note.ui.home.HomeScreen
 import com.example.note.ui.task.AddTaskScreen
 import com.example.note.ui.task.EditTaskScreen
 import com.example.note.ui.taskdetail.TaskDetailScreen
+import com.example.note.ui.theme.AppThemeState
 import com.example.note.ui.theme.ToDometerTheme
 
 
 @Composable
 fun ToDometerApp(mainViewModel: MainViewModel) {
+
     val navController = rememberNavController()
     val actions = remember(navController) { Actions(navController) }
     ToDometerTheme {
@@ -51,6 +56,7 @@ fun ToDometerApp(mainViewModel: MainViewModel) {
             }
             composable(AddProject) {
                 AddProjectScreen(
+                    appThemeState = mutableStateOf(AppThemeState()),
                     mainViewModel = mainViewModel,
                     navigateUp = actions.navigateUp
                 )

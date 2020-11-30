@@ -5,6 +5,7 @@
     <string name="add_task">Add task</string>
     <string name="edit_task">Edit task</string>
     <string name="add_project">Add project</string>
+    <string name="profile">profile</string>
     <string name="title">Title</string>
     <string name="name">Title</string>
     <string name="description">Description</string>
@@ -18,4 +19,6 @@
     <string name="remove_task_question">Do you want to remove this task?</string>
     <string name="no_description">No description provided</string>
     <string name="field_not_empty">Field must not be empty</string>
+    <string name="about_me">I love to create things that make the world a better place ,i work technology is used component compose </string>
+    <string name="about_project">This is a notebook project that uses technology ... along with the Roman Library to store information </string>
 </resources>

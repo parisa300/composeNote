@@ -6,6 +6,7 @@ import androidx.navigation.compose.navigate
 import com.example.note.ui.Destinations.AddProject
 import com.example.note.ui.Destinations.AddTask
 import com.example.note.ui.Destinations.EditTask
+
 import com.example.note.ui.Destinations.TaskDetail
 
 object Destinations {
