@@ -18,6 +18,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.savedinstancestate.savedInstanceState
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
@@ -28,6 +29,7 @@ import com.example.note.model.TaskState
 import com.example.note.ui.components.ProjectSelector
 import com.example.note.ui.components.TextField
 import com.example.note.ui.theme.MaterialColors
+import com.example.note.ui.theme.white
 import com.example.note.viewmodel.MainViewModel
 
 @Composable
@@ -97,6 +99,9 @@ fun AddTaskScreen(
         },
         floatingActionButton = {
             FloatingActionButton(
+                backgroundColor = Color.Red,
+                contentColor = white,
+
                 onClick = {
                     if (taskTitle.isBlank()) {
                         taskTitleInputError.value = true
@@ -114,6 +119,7 @@ fun AddTaskScreen(
                     }
                 },
                 icon = { Icon(Icons.Rounded.Check) }
+
             )
         }
     )

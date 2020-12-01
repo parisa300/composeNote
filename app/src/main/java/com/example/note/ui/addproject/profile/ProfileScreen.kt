@@ -104,6 +104,7 @@ fun BottomScrollingContent() {
             modifier = Modifier.fillMaxWidth().padding(8.dp),
         )
         InterestsSection()
+        MyPhotosSection()
 
         Text(
             text = "About Project",

@@ -51,6 +51,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
@@ -63,9 +64,7 @@ import com.example.note.model.TaskState
 import com.example.note.ui.components.DragIndicator
 import com.example.note.ui.components.HorizontalDivider
 import com.example.note.ui.components.ToDometerTitle
-import com.example.note.ui.theme.AppThemeState
-import com.example.note.ui.theme.MaterialColors
-import com.example.note.ui.theme.ToDometerTheme
+import com.example.note.ui.theme.*
 import com.example.note.ui.utils.ProgressUtil
 import com.example.note.viewmodel.MainViewModel
 import java.util.Locale
@@ -139,6 +138,8 @@ fun HomeScreen(
                 if (!projectList.isNullOrEmpty()) {
                     FloatingActionButton(
                         icon = { Icon(Icons.Rounded.Add) },
+                        backgroundColor = Color.Red,
+                     contentColor = white,
                         onClick = addTask
                     )
                 }

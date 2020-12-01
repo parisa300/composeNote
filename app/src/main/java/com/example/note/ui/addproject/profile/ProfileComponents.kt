@@ -16,23 +16,64 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.example.note.ui.theme.green
 import com.example.note.ui.theme.typography
-
+import androidx.compose.ui.res.imageResource
 
 @Composable
 fun MyPhotosSection() {
     Text(
-        text = "My Photography",
-        style = typography.h6,
-        modifier = Modifier.padding(start = 8.dp, top = 16.dp)
+            text = "My Gallery",
+            style = typography.h6,
+            modifier = Modifier.padding(start = 8.dp, top = 16.dp)
     )
     Divider(modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp))
     val imageModifier = Modifier
-        .padding(vertical = 8.dp, horizontal = 4.dp)
-        .preferredSize(120.dp)
-        .clip(RoundedCornerShape(8.dp))
+            .padding(vertical = 8.dp, horizontal = 4.dp)
+            .preferredSize(120.dp)
+            .clip(RoundedCornerShape(8.dp))
 
+    Row(
+            modifier = Modifier.padding(start = 8.dp, top = 8.dp).fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Image(
+                asset = imageResource(id = R.drawable.abc_btn_check_to_on_mtrl_000),
 
+                modifier = imageModifier,
+                contentScale = ContentScale.Crop
+        )
+        Image(
+                asset = imageResource(id = R.drawable.notification_bg_low_pressed),
+                modifier = imageModifier,
+                contentScale = ContentScale.Crop
+        )
+        Image(
+                asset = imageResource(id = R.drawable.abc_btn_check_to_on_mtrl_000),
+                modifier = imageModifier,
+                contentScale = ContentScale.Crop
+        )
+    }
+    Row(
+            modifier = Modifier.padding(start = 8.dp, top = 8.dp).fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Image(
+                asset = imageResource(id = R.drawable.notification_bg_low_pressed),
+                modifier = imageModifier,
+                contentScale = ContentScale.Crop
+        )
+        Image(
+                asset = imageResource(id = R.drawable.abc_btn_check_to_on_mtrl_000),
+                modifier = imageModifier,
+                contentScale = ContentScale.Crop
+        )
+        Image(
+                asset = imageResource(id = R.drawable.notification_bg_low_pressed),
+                modifier = imageModifier,
+                contentScale = ContentScale.Crop
+        )
+    }
 }
+
 
 @Composable
 fun InterestTag(text: String) {
