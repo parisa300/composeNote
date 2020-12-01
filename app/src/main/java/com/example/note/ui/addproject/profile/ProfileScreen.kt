@@ -16,6 +16,7 @@ import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.rounded.Email
 import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawOpacity
@@ -32,6 +33,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.ui.tooling.preview.Preview
 import com.example.note.R
+import com.example.note.ui.theme.AppThemeState
 import com.example.note.ui.theme.gradientBluePurple
 import com.example.note.ui.theme.typography
 import com.example.note.ui.utils.horizontalGradientBackground
@@ -46,7 +48,8 @@ private val initialimageFloat = 170f
 
 
 @Composable
-fun ProfileScreen() {
+fun ProfileScreen( mainViewModel: MainViewModel,
+                   navigateUp: () -> Unit) {
     Box(
         modifier = Modifier
             .fillMaxSize()
@@ -130,6 +133,8 @@ fun InterestsSection() {
     Row(modifier = Modifier.padding(start = 8.dp, top = 8.dp)) {
         InterestTag("Android")
         InterestTag("Compose")
+        InterestTag("Navigate")
+        InterestTag("Room")
 
     }
     Row(modifier = Modifier.padding(start = 8.dp)) {
@@ -148,7 +153,7 @@ fun TopAppBarView(scroll: Float) {
             },
             navigationIcon = {
                 Image(
-                    asset = imageResource(id = R.drawable.photo),
+                    asset = imageResource(id = R.drawable.p1),
                     modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
                         .preferredSize(32.dp).clip(CircleShape)
                 )
@@ -168,7 +173,7 @@ fun TopAppBarView(scroll: Float) {
 fun AnimatedImage(scroll: Float) {
     val dynamicAnimationSizeValue = (initialimageFloat - scroll).coerceIn(36f, initialimageFloat)
     Image(
-        asset = imageResource(id = R.drawable.photo),
+        asset = imageResource(id = R.drawable.p1),
         contentScale = ContentScale.Crop,
         modifier = Modifier
             .padding(start = 16.dp)
@@ -187,8 +192,5 @@ private fun TopBackground() {
     )
 }
 
-@Preview
-@Composable
-fun ShowProfileScreen() {
-    ProfileScreen()
-}
+
+

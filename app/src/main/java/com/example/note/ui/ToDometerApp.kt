@@ -15,11 +15,14 @@ import com.example.note.viewmodel.MainViewModel
 import com.example.note.ui.Destinations.AddProject
 import com.example.note.ui.Destinations.AddTask
 import com.example.note.ui.Destinations.EditTask
+import com.example.note.ui.Destinations.Exit
 import com.example.note.ui.Destinations.Home
+import com.example.note.ui.Destinations.Profile
 import com.example.note.ui.Destinations.TaskDetail
 import com.example.note.ui.Destinations.TaskDetailArgs.TaskId
 import com.example.note.ui.addproject.AddProjectScreen
 import com.example.note.ui.addproject.profile.ProfileScreen
+import com.example.note.ui.home.Exitaccunt
 import com.example.note.ui.home.HomeScreen
 import com.example.note.ui.task.AddTaskScreen
 import com.example.note.ui.task.EditTaskScreen
@@ -39,8 +42,10 @@ fun ToDometerApp(mainViewModel: MainViewModel) {
                 HomeScreen(
                     mainViewModel = mainViewModel,
                     addTask = actions.addTask,
+                    exit = actions.exit,
                     addProject = actions.addProject,
-                    openTask = actions.openTask
+                    openTask = actions.openTask,
+                    profile = actions.profile
                 )
             }
             composable(
@@ -61,10 +66,25 @@ fun ToDometerApp(mainViewModel: MainViewModel) {
                     navigateUp = actions.navigateUp
                 )
             }
+            composable(Profile) {
+                ProfileScreen(
+
+                    mainViewModel = mainViewModel,
+                    navigateUp = actions.navigateUp
+                )
+            }
             composable(AddTask) {
                 AddTaskScreen(
                     mainViewModel = mainViewModel,
                     navigateUp = actions.navigateUp
+                )
+            }
+
+            composable(Exit) {
+                Exitaccunt(
+                    mainViewModel = mainViewModel,
+                    navigateUp = actions.navigateUp,
+
                 )
             }
             composable(

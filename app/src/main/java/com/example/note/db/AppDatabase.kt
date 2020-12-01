@@ -19,7 +19,7 @@ package com.example.note.db
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.note.db.dao.ProjectDao
+import com.example.note.db.dao.NoteDao
 import com.example.note.db.dao.TagDao
 import com.example.note.db.dao.TaskDao
 import com.example.note.db.dao.TaskProjectDao
@@ -37,7 +37,7 @@ import com.example.note.db.view.TaskProjectView
 @TypeConverters(DataBaseTypeConverters::class)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun projectDao(): ProjectDao
+    abstract fun projectDao(): NoteDao
 
     abstract fun tagDao(): TagDao
 

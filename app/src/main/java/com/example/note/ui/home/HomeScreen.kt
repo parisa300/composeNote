@@ -51,6 +51,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
@@ -75,7 +76,9 @@ fun HomeScreen(
 
     mainViewModel: MainViewModel,
     addTask: () -> Unit,
+    exit: () -> Unit,
     addProject: () -> Unit,
+    profile: () -> Unit,
     openTask: (Int) -> Unit
 ) {
     val sheetState = rememberModalBottomSheetState(ModalBottomSheetValue.Hidden)
@@ -91,7 +94,7 @@ fun HomeScreen(
     ) {
         Scaffold(
             topBar = {
-                ToDometerTopBar()
+                ToDometerTopBar(profile)
             },
             bottomBar = {
                 if (projectList.isNotEmpty()) {
@@ -105,7 +108,7 @@ fun HomeScreen(
                                 Icon(Icons.Rounded.Menu)
                             }
                             Spacer(modifier = Modifier.weight(1f))
-                            IconButton(onClick = { /* doSomething() */ }) {
+                            IconButton(    onClick = exit) {
                                 Icon(Icons.Rounded.MoreVert)
                             }
                         }
@@ -183,8 +186,52 @@ fun RemoveTaskAlertDialog(
     )
 }
 
+
+
 @Composable
-fun ToDometerTopBar() {
+fun Exitaccunt(
+    mainViewModel: MainViewModel,
+    navigateUp: () -> Unit,
+
+) {
+    AlertDialog(
+        title = {
+            Text(stringResource(id = R.string.exituser))
+        },
+        onDismissRequest = {
+
+        },
+        text = {
+            Text(stringResource(id = R.string.exitacuunt))
+            Image(asset = imageResource(R.drawable.p1))
+        },
+        confirmButton = {
+            TextButton(
+             onClick = {
+                 navigateUp()
+             }
+
+            ) {
+                Text(stringResource(id = R.string.ok))
+            }
+        },
+        dismissButton = {
+            TextButton(
+                onClick = {
+                    navigateUp()
+                }
+
+            ) {
+                Text(stringResource(id = R.string.cancel))
+            }
+        }
+    )
+
+
+}
+
+@Composable
+fun ToDometerTopBar(  profile: () -> Unit) {
     Surface(
         modifier = Modifier
             .wrapContentHeight()
@@ -198,9 +245,11 @@ fun ToDometerTopBar() {
             ) {
                 ToDometerTitle(modifier = Modifier.align(Alignment.Center))
                 Providers(AmbientContentAlpha provides ContentAlpha.medium) {
-                    IconButton(onClick = {}, modifier = Modifier.align(Alignment.CenterEnd)) {
-                        Icon(Icons.Outlined.AccountCircle)
-                    }
+
+                    IconButton(
+                        icon = { Icon(Icons.Outlined.AccountCircle) },
+                        onClick = profile
+                    )
                 }
             }
             HorizontalDivider()
@@ -210,7 +259,7 @@ fun ToDometerTopBar() {
 
 @Composable
 fun SheetContainer(projectList: List<Project>, addProject: () -> Unit) {
-    Column(modifier = Modifier.preferredHeight(560.dp)) {
+    Column(modifier = Modifier.preferredHeight(480.dp)) {
         DragIndicator()
         Row(
             verticalAlignment = Alignment.CenterVertically,
@@ -225,12 +274,9 @@ fun SheetContainer(projectList: List<Project>, addProject: () -> Unit) {
 
             TextButton(onClick = addProject) {
                 Icon(asset = Icons.Rounded.Add)
-                Text(text = stringResource(id = R.string.add_project))
+                Text(text = stringResource(id = R.string.add_note))
             }
-            TextButton(onClick = addProject) {
-                Icon(asset = Icons.Rounded.Person)
-                Text(text = stringResource(id = R.string.profile))
-            }
+
         }
         HorizontalDivider()
         LazyColumnFor(
@@ -324,12 +370,12 @@ fun EmptyProjectTaskListView(addProject: () -> Unit) {
                 asset = vectorResource(id = R.drawable.project_completed),
                 modifier = Modifier.size(240.dp)
             )
-            Text(stringResource(id = R.string.you_have_not_any_project))
+            Text(stringResource(id = R.string.you_have_not_any_note))
             Button(
                 modifier = Modifier.align(Alignment.CenterHorizontally).padding(16.dp),
                 onClick = addProject
             ) {
-                Text(stringResource(id = R.string.add_project))
+                Text(stringResource(id = R.string.add_note))
             }
         }
     }

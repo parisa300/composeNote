@@ -3,14 +3,11 @@
 package com.example.note.ui.task
 
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.FloatingActionButton
-import androidx.compose.material.Icon
-import androidx.compose.material.IconButton
-import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
-import androidx.compose.material.TopAppBar
-import androidx.compose.material.contentColorFor
+import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.ArrowBack
 import androidx.compose.material.icons.rounded.Check
@@ -20,6 +17,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.savedinstancestate.savedInstanceState
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
@@ -53,7 +51,7 @@ fun AddTaskScreen(
                         Icon(Icons.Rounded.ArrowBack)
                     }
                 },
-                title = { Text(stringResource(id = R.string.add_task)) }
+                title = { Text(stringResource(id = R.string.add_note)) }
             )
         },
         bodyContent = {
@@ -65,6 +63,12 @@ fun AddTaskScreen(
                         taskTitleInputError.value = false
                     },
                     label = { Text(stringResource(id = R.string.title)) },
+                    modifier = Modifier.padding(
+                        start = 16.dp,
+                        end = 16.dp,
+                        top = 8.dp,
+                        bottom = 8.dp
+                    ).fillMaxWidth(),
                     isErrorValue = taskTitleInputError.value,
                     errorMessage = stringResource(id = R.string.field_not_empty),
                     keyboardOptions = KeyboardOptions(
@@ -76,6 +80,12 @@ fun AddTaskScreen(
                     value = taskDescription,
                     onValueChanged = { taskDescription = it },
                     label = { Text(stringResource(id = R.string.description)) },
+                    modifier = Modifier.padding(
+                        start = 16.dp,
+                        end = 16.dp,
+                        top = 8.dp,
+                        bottom = 8.dp
+                    ).fillMaxWidth().fillMaxHeight(0.6f),
                     onImeActionPerformed = { _, softwareKeyboardController -> softwareKeyboardController?.hideSoftwareKeyboard() },
                     keyboardOptions = KeyboardOptions(
                         capitalization = KeyboardCapitalization.Sentences,

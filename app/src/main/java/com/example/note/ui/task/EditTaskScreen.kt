@@ -58,7 +58,7 @@ fun EditTaskScreen(
                             Icon(Icons.Rounded.ArrowBack)
                         }
                     },
-                    title = { Text(stringResource(id = R.string.edit_task)) }
+                    title = { Text(stringResource(id = R.string.edit_note)) }
                 )
             },
             bodyContent = {

@@ -16,13 +16,13 @@
 
 package com.example.note.repository
 
-import com.example.note.db.dao.ProjectDao
+import com.example.note.db.dao.NoteDao
 import com.example.note.mapper.ProjectMapper.toDomain
 import com.example.note.mapper.ProjectMapper.toEntity
 import com.example.note.model.Project
 import kotlinx.coroutines.flow.map
 
-class ProjectRepository(private val projectDao: ProjectDao) {
+class ProjectRepository(private val projectDao: NoteDao) {
 
     val projectTaskList = projectDao.getProjectTasksList().map { list ->
         list.map { it.toDomain() }

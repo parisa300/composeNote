@@ -16,7 +16,7 @@
 
 package com.example.note.di
 
-import com.example.note.db.dao.ProjectDao
+import com.example.note.db.dao.NoteDao
 import com.example.note.db.dao.TaskDao
 import com.example.note.db.dao.TaskProjectDao
 import com.example.note.repository.ProjectRepository
@@ -38,7 +38,7 @@ class RepositoryModule {
 
     @Provides
     @ActivityRetainedScoped
-    fun provideProjectRepository(projectDao: ProjectDao) = ProjectRepository(projectDao)
+    fun provideProjectRepository(projectDao: NoteDao) = ProjectRepository(projectDao)
 
     @Provides
     @ActivityRetainedScoped

@@ -51,7 +51,7 @@ fun AddProjectScreen(
                         Icon(Icons.Rounded.ArrowBack)
                     }
                 },
-                title = { Text(stringResource(id = R.string.add_project)) },
+                title = { Text(stringResource(id = R.string.add_note)) },
                 actions = {
 
                     IconButton(onClick = {

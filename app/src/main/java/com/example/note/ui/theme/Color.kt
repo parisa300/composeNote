@@ -6,6 +6,7 @@ import androidx.compose.ui.graphics.Color
 
 val green = Color(0xFF3ddc84)
 val blue = Color(0xFF4285f4)
+val pink = Color(0xFF88173E)
 val orange = Color(0xFFF86734)
 val navy = Color(0xFF073042)
 val purple = Color(0xFF833AB4)
