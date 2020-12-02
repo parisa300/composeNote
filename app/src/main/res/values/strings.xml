@@ -11,6 +11,7 @@
     <string name="description">Description</string>
     <string name="you_have_not_any_note">You haven\'t any note</string>
     <string name="save">Save</string>
+    <string name="data_and_time">Date and Time </string>
     <string name="tags">Tags</string>
     <string name="add_tag">Add tag</string>
     <string name="cancel">Cancel</string>
