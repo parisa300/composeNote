@@ -17,21 +17,21 @@ import kotlinx.coroutines.flow.Flow
 interface NoteDao {
 
     @Query("SELECT * FROM project WHERE id = :id")
-    fun getProject(id: Int): Flow<ProjectEntity>
+    fun getNote(id: Int): Flow<ProjectEntity>
 
     @Query("SELECT * FROM project ORDER BY id ASC")
-    fun getProjects(): Flow<List<ProjectEntity>>
+    fun getNotes(): Flow<List<ProjectEntity>>
 
     @Transaction
     @Query("SELECT * FROM Project")
-    fun getProjectTasksList(): Flow<List<ProjectTasks>>
+    fun getNoteTasksList(): Flow<List<ProjectTasks>>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertProject(project: ProjectEntity)
+    suspend fun insertNote(project: ProjectEntity)
 
     @Update
-    suspend fun updateProject(project: ProjectEntity)
+    suspend fun updateNote(project: ProjectEntity)
 
     @Query("DELETE FROM project WHERE id = :id")
-    suspend fun deleteProject(id: Int)
+    suspend fun deleteNote(id: Int)
 }

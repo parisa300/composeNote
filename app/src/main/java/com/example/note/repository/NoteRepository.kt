@@ -10,11 +10,11 @@ import kotlinx.coroutines.flow.map
 
 class NoteRepository(private val projectDao: NoteDao) {
 
-    val projectTaskList = projectDao.getProjectTasksList().map { list ->
+    val projectTaskList = projectDao.getNoteTasksList().map { list ->
         list.map { it.toDomain() }
     }
 
-    suspend fun deleteNote(id: Int) = projectDao.deleteProject(id)
+    suspend fun deleteNote(id: Int) = projectDao.deleteNote(id)
 
-    suspend fun insertNote(project: Note) = projectDao.insertProject(project.toEntity())
+    suspend fun insertNote(project: Note) = projectDao.insertNote(project.toEntity())
 }
