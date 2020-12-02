@@ -1,11 +1,9 @@
 
-package com.example.note.ui.addproject
+package com.example.note.ui.addnote
 
-import android.view.MenuItem
 import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumnFor
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
@@ -20,17 +18,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ContextAmbient
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
-import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.semantics.testTag
 import androidx.compose.ui.unit.dp
 import com.example.note.R
-import com.example.note.model.Project
+import com.example.note.model.Note
 import com.example.note.ui.theme.*
 import com.example.note.viewmodel.MainViewModel
 
 
 @Composable
-fun AddProjectScreen(
+fun AddNoteScreen(
 
     appThemeState: MutableState<AppThemeState>,
     mainViewModel: MainViewModel,
@@ -109,7 +105,7 @@ fun AddProjectScreen(
                     onClick = {
 
                         mainViewModel.insertProject(
-                            Project(
+                            Note(
                                 name = projectName,
                                 description = projectDescription
                             )

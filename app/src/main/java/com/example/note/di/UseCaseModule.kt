@@ -16,7 +16,7 @@
 
 package com.example.note.di
 
-import com.example.note.repository.ProjectRepository
+import com.example.note.repository.NoteRepository
 import com.example.note.repository.TaskRepository
 import com.example.note.usecase.DeleteTaskUseCase
 import com.example.note.usecase.GetProjectListUseCase
@@ -57,9 +57,9 @@ class UseCaseModule {
 
     @Provides
     @ActivityRetainedScoped
-    fun provideInsertProjectUseCase(projectRepository: ProjectRepository) = InsertProjectUseCase(projectRepository)
+    fun provideInsertProjectUseCase(projectRepository: NoteRepository) = InsertProjectUseCase(projectRepository)
 
     @Provides
     @ActivityRetainedScoped
-    fun provideGetProjectTasksListUseCase(projectRepository: ProjectRepository) = GetProjectListUseCase(projectRepository)
+    fun provideGetProjectTasksListUseCase(projectRepository: NoteRepository) = GetProjectListUseCase(projectRepository)
 }

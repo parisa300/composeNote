@@ -19,14 +19,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import com.example.note.R
-import com.example.note.model.Project
+import com.example.note.model.Note
 import java.util.Locale
 
 @Composable
 fun ProjectSelector(
-    projectList: List<Project>,
-    selectedProject: Project,
-    onProjectSelected: (project: Project) -> Unit
+        projectList: List<Note>,
+        selectedProject: Note,
+        onProjectSelected: (project: Note) -> Unit
 ) {
     Column {
         Text(

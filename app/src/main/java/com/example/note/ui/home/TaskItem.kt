@@ -62,8 +62,10 @@ fun TaskItem(
             .fillMaxWidth()
             .padding(top = 8.dp, bottom = 8.dp),
         shape = MaterialTheme.shapes.large,
-        elevation = 0.dp,
-        border = BorderStroke(1.dp, MaterialColors.outline)
+        elevation = 1.dp,
+
+
+        border = BorderStroke(2.dp, MaterialColors.outline)
     ) {
         Column(
             modifier = Modifier.clickable(

@@ -25,7 +25,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.note.model.Project
+import com.example.note.model.Note
 import com.example.note.model.Task
 import com.example.note.model.TaskState
 import com.example.note.usecase.DeleteTaskUseCase
@@ -49,7 +49,7 @@ class MainViewModel @ViewModelInject constructor(
     private val deleteTaskUseCase: DeleteTaskUseCase
 ) : ViewModel() {
 
-    var projectList: List<Project> by mutableStateOf(listOf())
+    var projectList: List<Note> by mutableStateOf(listOf())
         private set
 
     init {
@@ -66,7 +66,7 @@ class MainViewModel @ViewModelInject constructor(
         insertTaskUseCase.insertTask(task)
     }
 
-    fun insertProject(project: Project) = viewModelScope.launch {
+    fun insertProject(project: Note) = viewModelScope.launch {
         insertProjectUseCase.insertProject(project)
     }
 

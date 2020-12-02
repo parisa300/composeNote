@@ -1,39 +1,29 @@
-package com.example.note.ui.addproject.profile
+package com.example.note.ui.addnote.profile
 
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
 import androidx.compose.animation.animate
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Settings
-import androidx.compose.material.icons.rounded.Email
-import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.drawOpacity
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.platform.ContextAmbient
 import androidx.compose.ui.res.imageResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTag
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.ui.tooling.preview.Preview
 import com.example.note.R
-import com.example.note.ui.theme.AppThemeState
 import com.example.note.ui.theme.gradientBluePurple
 import com.example.note.ui.theme.typography
 import com.example.note.ui.utils.horizontalGradientBackground
@@ -121,6 +111,61 @@ fun BottomScrollingContent() {
     }
 }
 
+@Composable
+fun MyPhotosSection() {
+    Text(
+            text = "My Gallery",
+            style = typography.h6,
+            modifier = Modifier.padding(start = 8.dp, top = 16.dp)
+    )
+    Divider(modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp))
+    val imageModifier = Modifier
+            .padding(vertical = 8.dp, horizontal = 4.dp)
+            .preferredSize(120.dp)
+            .clip(RoundedCornerShape(8.dp))
+
+    Row(
+            modifier = Modifier.padding(start = 8.dp, top = 8.dp).fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Image(
+                asset = imageResource(id = R.drawable.one),
+
+                modifier = imageModifier,
+                contentScale = ContentScale.Crop
+        )
+        Image(
+                asset = imageResource(id = R.drawable.image2),
+                modifier = imageModifier,
+                contentScale = ContentScale.Crop
+        )
+        Image(
+                asset = imageResource(id = R.drawable.image3),
+                modifier = imageModifier,
+                contentScale = ContentScale.Crop
+        )
+    }
+    Row(
+            modifier = Modifier.padding(start = 8.dp, top = 8.dp).fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceBetween
+    ) {
+        Image(
+                asset = imageResource(id = R.drawable.image4),
+                modifier = imageModifier,
+                contentScale = ContentScale.Crop
+        )
+        Image(
+                asset = imageResource(id = R.drawable.image5),
+                modifier = imageModifier,
+                contentScale = ContentScale.Crop
+        )
+        Image(
+                asset = imageResource(id = R.drawable.image2),
+                modifier = imageModifier,
+                contentScale = ContentScale.Crop
+        )
+    }
+}
 
 
 @Composable

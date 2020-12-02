@@ -14,21 +14,13 @@
  * limitations under the License.
  */
 
-package com.example.note.repository
+package com.example.note.model
 
-import com.example.note.db.dao.NoteDao
-import com.example.note.mapper.ProjectMapper.toDomain
-import com.example.note.mapper.ProjectMapper.toEntity
-import com.example.note.model.Project
-import kotlinx.coroutines.flow.map
-
-class ProjectRepository(private val projectDao: NoteDao) {
-
-    val projectTaskList = projectDao.getProjectTasksList().map { list ->
-        list.map { it.toDomain() }
-    }
-
-    suspend fun deleteProject(id: Int) = projectDao.deleteProject(id)
-
-    suspend fun insertProject(project: Project) = projectDao.insertProject(project.toEntity())
+data class Note(
+    val id: Int = 0,
+    val name: String,
+    val description: String,
+    val tasks: List<Task> = arrayListOf()
+) {
+    override fun toString() = name
 }

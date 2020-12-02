@@ -42,7 +42,6 @@ import androidx.compose.material.icons.outlined.AccountCircle
 import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.Menu
 import androidx.compose.material.icons.rounded.MoreVert
-import androidx.compose.material.icons.rounded.Person
 import androidx.compose.material.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
@@ -58,7 +57,7 @@ import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.unit.dp
 import androidx.ui.tooling.preview.Preview
 import com.example.note.R
-import com.example.note.model.Project
+import com.example.note.model.Note
 import com.example.note.model.TaskState
 
 import com.example.note.ui.components.DragIndicator
@@ -259,7 +258,7 @@ fun ToDometerTopBar(  profile: () -> Unit) {
 }
 
 @Composable
-fun SheetContainer(projectList: List<Project>, addProject: () -> Unit) {
+fun SheetContainer(projectList: List<Note>, addProject: () -> Unit) {
     Column(modifier = Modifier.preferredHeight(480.dp)) {
         DragIndicator()
         Row(
@@ -288,7 +287,7 @@ fun SheetContainer(projectList: List<Project>, addProject: () -> Unit) {
                 ListItem(
                     modifier = Modifier.clickable(onClick = {}),
                     text = { Text(text = project.name) },
-                    icon = { Icon(vectorResource(id = R.drawable.ic_baseline_book_24)) }
+                    icon = { Icon(vectorResource(id = R.drawable.ic_baseline_event_note_24)) }
                 )
             }
         }
